@@ -1,0 +1,122 @@
+.container-div {
+  display: block;
+  width: 100% !important;
+  transition: all 500ms ease;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 60px;
+  position: relative;
+  /* max-width: 1260px; */
+}
+
+.container-div, .full-50, .full-33, .full-30, .full-70, .wrapper {
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.bg-BuyersCalgary {
+  /* padding: 30px 0; */
+  background-color: #fff;
+}
+
+.titles-con {
+  margin: 0 0 20px;
+}
+
+.bg-BuyersCalgary .titles.large {
+  text-align: center;
+  color: #023305;
+}
+
+.titles-con .titles.large {
+  margin: 0 0 5px;
+}
+
+.titles.large {
+  color: #2263a9;
+  font-size: 42px;
+  padding: 0;
+  margin: 0 0 20px;
+  line-height: 46px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.titles {
+  border: 0;
+}
+
+.bg-BuyersCalgary .hasRed {
+  color: #003da5;
+}
+
+.titles span {
+  padding: 0 0 0 5px;
+}
+
+.bg-BuyersCalgary .subs.large {
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.subs.large {
+  font-size: 21px;
+}
+
+.subs {
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  border: 0;
+  line-height: 27px;
+}
+
+@media only screen and (max-width: 64.063em) {
+  .titles.large {
+    font-size: 32px;
+    line-height: 34px;
+  }
+
+  .subs.large {
+    font-size: 21px;
+    line-height: 25px;
+  }
+}
+
+@media only screen and (max-width: 40.063em) {
+  .titles.large {
+    font-size: 25px;
+    line-height: 27px;
+  }
+
+  .subs.large {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .wrapper {
+    padding: 0px 10px !important;
+  }
+}
+
+.container-content {
+  margin: 50px -16px 20px 0px !important;
+  min-height: 500px;
+}

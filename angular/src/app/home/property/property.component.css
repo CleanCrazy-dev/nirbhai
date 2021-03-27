@@ -1,0 +1,18 @@
+.search-result-txt {
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Times New Roman;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+/* Card Listing */
+.content { 
+  padding: 50px; 
+  margin: 0px !important;
+}
+
+.content > mat-card { 
+  width: 200px; 
+}

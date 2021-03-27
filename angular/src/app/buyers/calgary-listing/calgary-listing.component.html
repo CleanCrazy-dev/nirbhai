@@ -1,0 +1,62 @@
+<app-buyers-nav-bar></app-buyers-nav-bar>
+
+<app-scroll-to-top></app-scroll-to-top>
+
+<!-- <mat-toolbar>
+
+  <span >Calgary Residential Serch</span>
+   
+</mat-toolbar>
+<mat-sidenav-container style="height: calc(100% - 64px); margin: 0;">
+    <mat-sidenav #sidenav mode="side" opened="true" [class.mat-elevation-z4]="true" style="width: 400px; padding: 0px 20px;">
+      <button mat-button matTooltip="Application Menu" (click)="sidenav.toggle()">
+        <mat-icon>west</mat-icon> View Results
+      </button>
+        <mat-nav-list dense class="container-content-filter">
+
+            <app-location-select></app-location-select>
+
+            <app-property-type-filter></app-property-type-filter>
+
+        </mat-nav-list> 
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <button mat-button matTooltip="Application Menu" (click)="sidenav.toggle()">
+        <mat-icon>east</mat-icon> FilterResults
+      </button>
+        <router-outlet>
+            <div class="container mat-body-1">
+              
+            </div>
+        </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<div class="container-div bg-BuyersCalgary clearfix" id="container_div">
+  <div class="wrapper clearfix">
+
+    <app-property-type-filter city="Calgary" (setFiter)="getPropertyList($event)"></app-property-type-filter>
+
+    <div class="container-content" fxLayout="row wrap" fxLayoutGap="20px grid">
+
+      <div fxFlex="80%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <app-property-list 
+          city="{{filterCondition['city']}}"
+          district="{{filterCondition['district']}}"
+          subdivisionName="{{filterCondition['subdivisionName']}}">
+        </app-property-list>
+
+      </div>
+
+      <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="100%">
+        
+        <app-contact-info></app-contact-info>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

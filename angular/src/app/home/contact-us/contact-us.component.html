@@ -1,0 +1,61 @@
+<app-home-nav-bar></app-home-nav-bar>
+
+<app-scroll-to-top></app-scroll-to-top>
+
+<div class="contact-description">
+  <h1>Contact us:</h1>
+  <ul>
+    <li>Use this form to request more information about properties or for any general inquiries.</li>
+    <li>You will get a reply within 30 minutes (often sooner and never automated).</li>
+    <li>For an immediate response please call.</li>
+  </ul>
+</div>
+
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Enter your First Name</mat-label>
+      <input matInput placeholder="First Name">
+      <mat-hint>You have given an answer shorter than 2 characters</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Enter your Last Name</mat-label>
+      <input matInput placeholder="Last Name">
+      <mat-hint>You have given an answer shorter than 2 characters</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-hint>You have not given a correct e-mail address</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Enter your Phone</mat-label>
+      <input matInput placeholder="Your Phone">
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-hint>The answer you gave was not a correct number</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="100%">
+    <mat-form-field appearance="standard">
+      <mat-label>Message</mat-label>
+      <textarea matInput placeholder="Enter your Message" rows="8"></textarea>
+      <mat-hint>The answer you gave was not a correct number</mat-hint>
+    </mat-form-field>
+  </div>
+  
+</div>
+
+<div class="send_btn">
+  <button mat-raised-button color="primary">Send</button>
+</div>

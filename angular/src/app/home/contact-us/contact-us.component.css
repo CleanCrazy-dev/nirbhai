@@ -1,0 +1,24 @@
+.contact-description {
+  padding-left: 50px;
+}
+
+.content { 
+  padding: 10px 50px; 
+  margin: 0px !important;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+.send_btn {
+  text-align: center;
+}
+
+.send_btn button {
+  width: 200px;
+}

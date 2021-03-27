@@ -1,0 +1,87 @@
+<app-scroll-to-top></app-scroll-to-top>
+
+<div class="search-result-txt">
+  <span>Search Result: {{totalRecord}}</span>
+  <mat-form-field appearance="outline">
+    <mat-label>Sort By</mat-label>
+    <mat-select [(ngModel)]="selectedSort" name="selectedSort" (ngModelChange)="onChangeSortBy($event)">
+      <mat-option value='1'>Price (low to high)</mat-option>
+      <mat-option value="2">price (high to low)</mat-option>
+      <mat-option value="3">Newest</mat-option>
+      <mat-option value="4">Bedrooms</mat-option>
+      <mat-option value="5">Bathrooms</mat-option>
+      <mat-option value="6">Sqft</mat-option>
+      <mat-option value="7">Lot Size</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div *ngIf="!errMsg" class="container-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="100%" *ngFor="let element of searchResultArr">
+    <div class="item-cnt" fxLayout="row wrap" fxLayoutGap="20px grid">
+      <div class="photo-cnt" >
+        <!-- <img mat-card-image *ngIf="element.PhotosCount == '0'" src="../../../assets/home.jpg" alt="Photo of a Shiba Inu"> -->
+        <img mat-card-image *ngIf="element.PhotosCount != '0'" 
+          src="{{resourceURL}}photo/{{element.ListingKeyNumeric}}_1.jpeg" 
+          onerror="javascript:this.src='../../../assets/home.jpg'" 
+          alt="Photo of house">
+      </div>
+      <div class="item-right-cnt">
+
+        <div class="item-right-details-cnt">
+          <div class="item-header-cnt">
+            <div class="item-address" data-address="{{element.UnparsedAddress}}">
+                <a (click)="gotoPropertyDetail(element.ListingKeyNumeric)">
+                  <span>
+                    <div class="address-container" data-address="{{element.UnparsedAddress}}">
+                      {{element.UnparsedAddress}}
+                    </div>
+                  </span>
+                </a>
+            </div>
+          </div>
+
+          <div class="item-info-cnt">
+            <div class="characteristics-cnt">
+              <ul>
+                <li data-label="Beds" class="ic-beds">
+                  <mat-icon class="material-icons-outlined">king_bed</mat-icon>
+                    <strong>{{element.BedroomsTotal}}</strong> <span class="gray normal-lbl">Beds</span><span class="gray short-lbl">Bds</span>
+                </li>
+                <li data-label="Baths" class="ic-baths nosq">
+                    <mat-icon class="material-icons-outlined">bathtub</mat-icon>
+                    <strong>{{element.BathroomsTotalInteger}}</strong> <span class="gray normal-lbl">Baths</span><span class="gray short-lbl">Ba</span>
+                </li>
+                <li class="property-type ic-proptype">
+                    <mat-icon class="material-icons-outlined">home</mat-icon>
+                    Residential
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-right-utils-cnt">
+          <mat-icon>place</mat-icon>
+          
+          <div class="price " data-price="${{addCommas(element.ListPrice)}}">
+              <span class="green">
+                  <span>
+                    ${{addCommas(element.ListPrice)}}
+                  </span>
+              </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div *ngIf="errMsg">
+  <p>{{errMsg}}</p>
+</div>
+<mat-paginator [length]="totalRecord"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent = $event; onPaginateChange($event)">
+</mat-paginator>

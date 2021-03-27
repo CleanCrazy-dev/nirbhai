@@ -1,0 +1,386 @@
+<!-- <div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="100%">
+    <mat-form-field appearance="standard">
+      <mat-label>Select Condo Type</mat-label>
+      <mat-select multiple [(ngModel)]="selectedCondoType" name="selectedCondoType" (ngModelChange)="onChangeCondoType($event)">
+        <mat-option value=''>-- None --</mat-option>
+        <mat-option *ngFor="let element of CondoTypeList" [value]="element.value">
+          {{element.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Price Min</mat-label>
+      <input matInput placeholder="Mi" [(ngModel)]='priceMinMax'>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Price Max</mat-label>
+      <input matInput placeholder="Max" [(ngModel)]='priceMinMax'>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Bedrooms Min</mat-label>
+      <input matInput placeholder="Min" [(ngModel)]='bedroomMinMax'>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Bedrooms Max</mat-label>
+      <input matInput placeholder="Max" [(ngModel)]='bedroomMinMax'>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Bathrooms Min</mat-label>
+      <input matInput placeholder="Min" [(ngModel)]='bathroomMinMax'>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Bathrooms Max</mat-label>
+      <input matInput placeholder="Max" [(ngModel)]='bathroomMinMax'>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Year Built Min</mat-label>
+      <input matInput placeholder="Min" [(ngModel)]='yearbuildMinMax'>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Year Built Max</mat-label>
+      <input matInput placeholder="Max" [(ngModel)]='yearbuildMinMax'>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Fire Place Min</mat-label>
+      <input matInput placeholder="Min" [(ngModel)]='fireplaceMinMax'>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="50%">
+    <mat-form-field appearance="standard">
+      <mat-label>Fire Place Max</mat-label>
+      <input matInput placeholder="Max" [(ngModel)]='fireplaceMinMax'>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="100%">
+    <mat-form-field appearance="standard">
+      <mat-label>Common Walls</mat-label>
+      <mat-select multiple [(ngModel)]="selectedCommonWalls" name="selectedCommonWalls" (ngModelChange)="onChangeCommonWalls($event)">
+        <mat-option value=''>-- None --</mat-option>
+        <mat-option *ngFor="let element of CommonWallsList" [value]="element.value">
+          {{element.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="100%">
+    <mat-form-field appearance="standard">
+      <mat-label>Select Property Type</mat-label>
+      <mat-select multiple [(ngModel)]="selectedPropertyType" name="select_propertytype">
+        <mat-option value=''>-- None --</mat-option>
+        <mat-option *ngFor="let type of propertyTypeList" [value]="type.value">
+          {{type.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div> 
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="100%">
+    <mat-form-field appearance="standard">
+      <mat-label>Parking Feature</mat-label>
+      <mat-select multiple [(ngModel)]="selectedParkingFeature" name="selectedParkingFeature" (ngModelChange)="onChangeParkingFeature($event)">
+        <mat-option value=''>-- None --</mat-option>
+        <mat-option *ngFor="let element of ParkingFeatureList" [value]="element.value">
+          {{element.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="100%">
+    <button class="apply-filter-button" (click)="applyFilter()">Apply Filter</button>
+  </div>
+</div> -->
+
+<div class="container-content-filter">
+
+  <div class="second-row" fxLayout="row wrap" fxLayoutGap="10px grid">
+    <div fxFlex="27%" fxFlex.xs="50%" fxFlex.sm="50%">
+      <mat-form-field appearance="outline">
+        <mat-label>Select District Or Subdivision Name</mat-label>
+        <mat-select [(ngModel)]="selectedSubdivisionName" name="selectedSubdivisionName" (ngModelChange)="onChangeSubdivisionName($event)">
+          <mat-option value=''>-- None --</mat-option>
+          <mat-optgroup label="District" *ngIf="city == 'Calgary'">
+            <mat-option *ngFor="let element of DistrictList" [value]="element.value">
+              {{element.viewValue}}
+            </mat-option>
+          </mat-optgroup>
+          <mat-optgroup label="Subdivision">
+            <mat-option *ngFor="let element of SubdivisionNameList" [value]="element.value">
+              {{element.viewValue}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%" fxHide.sm fxHide.xs>
+      <mat-form-field appearance="outline">
+        <mat-label>Price Min</mat-label>
+        <input matInput placeholder="Min" [(ngModel)]='priceMin'>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%" fxHide.sm fxHide.xs>
+      <mat-form-field appearance="outline">
+        <mat-label>Price Max</mat-label>
+        <input matInput placeholder="Max" [(ngModel)]='priceMax'>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%" fxHide.sm fxHide.xs>
+      <mat-form-field appearance="outline">
+        <mat-label>Bedrooms</mat-label>
+        <mat-select [(ngModel)]="selectedBedRooms" name="selectedBedRooms" (ngModelChange)="onChangeBedRooms($event)">
+          <mat-option value='Any'>Any</mat-option>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="1.5">1 - 2</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="2+">2 +</mat-option>
+          <mat-option value="2.5">2 - 3</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="3+">3 +</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="4+">4 +</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="15%" fxFlex.xs="25%" fxFlex.sm="25%">
+      <button mat-raised-button class="more-filter-button" (click)="moreFilterClick()">More 
+        <mat-icon *ngIf="!selectedMoreFilterBtn">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="selectedMoreFilterBtn">keyboard_arrow_up</mat-icon>
+      </button>
+    </div>
+    
+    <div fxFlex="13%" fxFlex.xs="25%" fxFlex.sm="25%">
+      <button class="apply-filter-button" (click)="applyFilter()">Apply Filter</button>
+    </div>
+
+  </div>
+
+  <div class="container-content-more-filter" fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="selectedMoreFilterBtn">
+
+    <div fxFlex="33.33%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+      <mat-form-field appearance="outline">
+        <mat-label>Select Condo Type</mat-label>
+        <mat-select [(ngModel)]="selectedCondoType" name="selectedCondoType" (ngModelChange)="onChangeCondoType($event)">
+          <mat-option value=''>-- None --</mat-option>
+          <mat-option *ngFor="let element of CondoTypeList" [value]="element.value">
+            {{element.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div fxLayout="row wrap" fxLayoutGap="10px grid">
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Square Feet Min</mat-label>
+            <input matInput placeholder="Min" [(ngModel)]='squarefeetMin'>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Square Feet Max</mat-label>
+            <input matInput placeholder="Max" [(ngModel)]='squarefeetMax'>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutGap="10px grid" fxHide.md fxHide.lg fxHide.xl>
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Lot Size Min</mat-label>
+            <input matInput placeholder="Min" [(ngModel)]='lotsizeMin'>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Lot Size Max</mat-label>
+            <input matInput placeholder="Max" [(ngModel)]='lotsizeMax'>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+
+    <div fxFlex="33.33%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+      <div fxLayout="row wrap" fxLayoutGap="10px grid" fxHide.md fxHide.lg fxHide.xl>
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Price Min</mat-label>
+            <input matInput placeholder="Min" [(ngModel)]='priceMin'>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Price Max</mat-label>
+            <input matInput placeholder="Max" [(ngModel)]='priceMax'>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutGap="10px grid" fxHide.md fxHide.lg fxHide.xl>
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Bedrooms</mat-label>
+            <mat-select [(ngModel)]="selectedBedRooms" name="selectedBedRooms" (ngModelChange)="onChangeBedRooms($event)">
+              <mat-option value='Any'>Any</mat-option>
+              <mat-option value="1">1</mat-option>
+              <mat-option value="1.5">1 - 2</mat-option>
+              <mat-option value="2">2</mat-option>
+              <mat-option value="2+">2 +</mat-option>
+              <mat-option value="2.5">2 - 3</mat-option>
+              <mat-option value="3">3</mat-option>
+              <mat-option value="3+">3 +</mat-option>
+              <mat-option value="4">4</mat-option>
+              <mat-option value="4+">4 +</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Bathrooms</mat-label>
+            <mat-select [(ngModel)]="selectedBathrooms" name="selectedBathrooms" (ngModelChange)="onChangeBathrooms($event)">
+              <mat-option value='Any'>Any</mat-option>
+              <mat-option value="1">1</mat-option>
+              <mat-option value="1.5">1 - 2</mat-option>
+              <mat-option value="2">2</mat-option>
+              <mat-option value="2+">2 +</mat-option>
+              <mat-option value="2.5">2 - 3</mat-option>
+              <mat-option value="3">3</mat-option>
+              <mat-option value="3+">3 +</mat-option>
+              <mat-option value="4">4</mat-option>
+              <mat-option value="4+">4 +</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <mat-form-field appearance="outline" fxHide.xs fxHide.sm>
+        <mat-label>Bathrooms</mat-label>
+        <mat-select [(ngModel)]="selectedBathrooms" name="selectedBathrooms" (ngModelChange)="onChangeBathrooms($event)">
+          <mat-option value='Any'>Any</mat-option>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="1.5">1 - 2</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="2+">2 +</mat-option>
+          <mat-option value="2.5">2 - 3</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="3+">3 +</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="4+">4 +</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <div fxLayout="row wrap" fxLayoutGap="10px grid" fxHide.md fxHide.lg fxHide.xl>
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Year Built Min</mat-label>
+            <input matInput placeholder="Min" [(ngModel)]='yearbuildMin'>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Year Built Max</mat-label>
+            <input matInput placeholder="Max" [(ngModel)]='yearbuildMax'>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutGap="10px grid" fxHide.xs fxHide.sm>
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Lot Size Min</mat-label>
+            <input matInput placeholder="Min" [(ngModel)]='lotsizeMin'>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50%">
+          <mat-form-field appearance="outline">
+            <mat-label>Lot Size Max</mat-label>
+            <input matInput placeholder="Max" [(ngModel)]='lotsizeMax'>
+          </mat-form-field>
+        </div>
+      </div>
+      
+    </div>
+
+    <div fxFlex="33.33%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+      <mat-form-field appearance="outline">
+        <mat-label>Common Walls</mat-label>
+        <mat-select [(ngModel)]="selectedCommonWalls" name="selectedCommonWalls" (ngModelChange)="onChangeCommonWalls($event)">
+          <mat-option value=''>-- None --</mat-option>
+          <mat-option *ngFor="let element of CommonWallsList" [value]="element.value">
+            {{element.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Parking Feature</mat-label>
+        <mat-select [(ngModel)]="selectedParkingFeature" name="selectedParkingFeature" (ngModelChange)="onChangeParkingFeature($event)">
+          <mat-option value=''>-- None --</mat-option>
+          <mat-option *ngFor="let element of ParkingFeatureList" [value]="element.value">
+            {{element.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+  </div>
+
+</div>

@@ -1,0 +1,52 @@
+<app-sellers-nav-bar></app-sellers-nav-bar>
+
+<div class="container-div bg-HomeWorth sellers clearfix" id="sellers_section">
+
+  <div class="wrapper clearfix padding-t-b-30">
+      <div class="titles-con">
+          <div class="titles large" style="color: #000;">
+              Thinking of Selling?
+          </div>
+          <br>
+          <div class="titles large">
+              See What Your <span class="hasRed">Home Is Worth</span>
+          </div>
+          <div class="subs large">
+              Type your address and the type of home you live in below:
+          </div>
+      </div>
+
+      <form class="hic-2-address-form" id="hic-2-address-form" action="/images/landing/homeworth-2/step2.asp"
+          onSubmit="return checkEntry();">
+          <input type="hidden" name="lat" id="glat">
+          <input type="hidden" name="lng" id="glng">
+          <input type="hidden" name="street_number" id="street_number">
+          <input type="hidden" name="route" id="route">
+          <input type="hidden" name="locality" id="locality">
+          <input type="hidden" name="administrative_area_level_1" id="administrative_area_level_1">
+          <input type="hidden" name="country" id="country">
+          <input type="hidden" name="postal_code" id="postal_code">
+          <input type="text" name="hic-2-search-term" id="hic-2-search-term"
+              placeholder="Type your home address..." autocomplete="off">
+          <select name="Type2">
+              <option value='DETCH'>Detached Home</option>
+              <option value='APTLO'>Apartment Low Rise</option>
+              <option value='TOWNH'>Townhouse</option>
+              <option value='APTHI'>Apartment Highrise</option>
+              <option value='VLOT'>Vacant Lot</option>
+              <option value='ATTCH'>Attached</option>
+              <option value='HDUP'>Half Duplex</option>
+              <option value='SWIDE'>Single Wide Mobile Home</option>
+              <option value='DUPSS'>Duplex Side by Side</option>
+              <option value='COTGE'>Cottage</option>
+              <option value='4Plex'>4 units in one building</option>
+              <option value='DWIDE'>Double Wide Mobile Home</option>
+              <option value='DUPUD'>Updown Duplex</option>
+              <option value='STACK'>Stacked Townhome</option>
+              <option value='3PLEX'>3 units in one building</option>
+          </select>
+          <button type="submit" id="hic-2-address-submit">Continue</button>
+      </form>
+
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<app-buyers-nav-bar></app-buyers-nav-bar>
+
+<app-scroll-to-top></app-scroll-to-top>
+
+<div class="container-div bg-BuyersCalgary clearfix" id="container_div">
+  <div class="wrapper clearfix">
+
+    <app-property-type-filter city="Chestermere" (setFiter)="getPropertyList($event)"></app-property-type-filter>
+
+    <div class="container-content" fxLayout="row wrap" fxLayoutGap="20px grid">
+
+      <div fxFlex="80%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <app-property-list 
+          city="{{filterCondition['city']}}"
+          district="{{filterCondition['district']}}"
+          subdivisionName="{{filterCondition['subdivisionName']}}">
+        </app-property-list>
+
+      </div>
+
+      <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="100%">
+        
+        <app-contact-info></app-contact-info>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

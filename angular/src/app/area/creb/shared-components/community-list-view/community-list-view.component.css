@@ -1,0 +1,165 @@
+
+.item-cnt {
+  font-size: 14px;
+  box-shadow: 1px 3px 4px rgba(0,0,0,.1);
+  padding: 10px;
+  background: #fafafa;
+  margin-bottom: 5px !important;
+  position: relative;
+  border-top: 3px solid #0e35012e;
+}
+
+.item-cnt .photo-cnt {
+  width: auto;
+  flex: 1 1 310px;
+  float: none;
+  margin: 0;
+  justify-content: center;
+  text-align: center;
+}
+
+.item-cnt .photo-cnt {
+  position: relative;
+}
+
+.item-cnt .photo-cnt img {
+  width: 300px;
+  height: 215px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.item-cnt .item-right-cnt {
+  width: auto;
+  flex: 10 1 300px;
+  padding: 0 0 0 10px;
+  min-width: calc(100% - 320px);
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-cnt .item-right-cnt .item-right-details-cnt {
+  flex: 20 1 calc(100% - 270px);
+}
+
+.item-cnt .item-header-cnt {
+  flex: 1 1 100%;
+  display: flex;
+}
+
+.item-cnt .item-header-cnt .item-address {
+  flex: 1 1 auto;
+}
+
+.item-cnt .item-address a {
+  font-weight: 400;
+  font-size: 20px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.item-cnt .item-address a:hover {
+  color: rgb(119, 119, 119);
+}
+
+.item-cnt .item-info-cnt {
+  padding-bottom: 0;
+  display: inline-block;
+  clear: both;
+  margin: 3px 0;
+}
+
+.item-cnt .characteristics-cnt {
+  display: inline-block;
+  flex: 1 1 auto;
+  margin: 15px 0 0;
+  font-size: 14px;
+}
+
+.characteristics-cnt {
+  margin: 6px 0;
+  min-height: 1.6em;
+  font-size: 13px;
+  line-height: 1.6em;
+  color: #333;
+}
+
+.item-cnt .characteristics-cnt ul {
+  margin: 6px 0;
+  list-style: none;
+}
+
+.item-cnt .characteristics-cnt li {
+  margin-bottom: 10px;
+  margin-right: 25px;
+}
+
+.item-cnt .characteristics-cnt ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.characteristics-cnt ul li {
+  display: inline-block;
+  margin-right: 15px;
+  font-weight: 400;
+}
+
+.item-cnt .ic-baths:before, .item-cnt .ic-beds:before, .item-cnt .ic-sqft:before, .item-cnt .ic-lotsize:before, .item-cnt .ic-proptype:before {
+  margin-right: 3px;
+  font-size: 26px;
+  width: 26px;
+  height: 26px;
+  color: #666;
+}
+
+.characteristics-cnt ul li .mat-icon {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}
+
+.characteristics-cnt ul li strong {
+  font-weight: 400;
+}
+
+.characteristics-cnt .gray {
+  color: #333;
+}
+
+.characteristics-cnt .short-lbl {
+  display: none;
+}
+
+.item-cnt .item-right-cnt .item-right-utils-cnt .price {
+  margin-top: auto;
+  white-space: nowrap;
+}
+
+.item-cnt .item-right-cnt .price {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.search-result-txt {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.community_title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media only screen and (max-width: 960px) {
+  .search-result-txt, .container-content, .community_title{
+    margin: 0px 0px 10px 20px !important;
+  }
+}

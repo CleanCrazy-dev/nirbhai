@@ -1,0 +1,89 @@
+.mortgage-sub-content {
+  padding: 15px;
+}
+
+.sub-title {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  padding: 15px 0px;
+}
+
+.sub-part-title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding: 10px 0px;
+}
+
+.sub-part-title div {
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.how-help-title, .how-apply-title, .mortgage-tools-title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 20px;
+  padding: 15px 0px 0px 15px;
+  position: relative;
+}
+
+.how-apply-title::after, .how-help-title::after, .mortgage-tools-title::after {
+  right: auto;
+  left: -5px;
+  background: #db0011;
+  content: "";
+  display: block;
+  width: 5px;
+  position: absolute;
+  top: 20px;
+  bottom: 0px;
+}
+
+.how-help-sub-title, .how-apply-sub-title {
+  font-size: 1.3rem;
+  line-height: 1.1;
+  padding: 15px 0px;
+}
+
+.how-help-content, .how-apply-content, .mortgage-tools-content {
+  margin-bottom: 20px !important;
+}
+
+.mat-card-content span {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.mat-card-content span .mat-icon {
+  vertical-align: middle;
+}
+
+.how-apply-sub-title .mat-icon {
+  vertical-align: middle;
+}
+
+.how-apply-sub-content li {
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.mortgage-tools-content {
+  margin-top: 20px !important;
+}
+
+.mortgage-tools-content-div {
+  border: 1px solid #8b8a8a;
+  padding: 15px !important;
+  margin: 10px 1.5% 0px 1.5% !important;
+  min-height: 200px;
+}
+
+.mortgage-tools-content-div .heading {
+  font-size: 20px;
+  padding: 20px 0px;
+}
+
+.mortgage-tools-content-div .mat-icon {
+  vertical-align: middle;
+}

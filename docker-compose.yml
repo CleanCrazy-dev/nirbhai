@@ -1,0 +1,50 @@
+version: '3.8' # specify docker-compose version
+services:
+  web: # frontend angular app
+    image: angular-image
+    container_name: angular-container
+    restart: always
+    depends_on:
+      - mainapp
+    links:
+      - mainapp
+    build:
+      context: angular
+      dockerfile: Dockerfile
+      # target: frontend-browser
+    ports:
+      - "80:4000"
+  
+  # webssr: # frontend angular app
+  #   image: webssr-image
+  #   container_name: ssr-server
+  #   restart: always
+  #   depends_on:
+  #     - mainapp
+  #   links:
+  #     - mainapp
+  #   build:
+  #     context: angular
+  #     dockerfile: Dockerfile
+  #     target: ssr-server
+  #   expose: 
+  #     - "4000"
+    
+  mainapp:
+    container_name: mainapp-container
+    image: mainapp-image
+    restart: always
+    build:
+      context: ./mainapp
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    
+
+  
+
+
+
+  

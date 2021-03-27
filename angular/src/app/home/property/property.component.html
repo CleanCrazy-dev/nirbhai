@@ -1,0 +1,28 @@
+<app-home-nav-bar></app-home-nav-bar>
+
+<app-scroll-to-top></app-scroll-to-top>
+
+<div class="search-result-txt">
+  <span>Search Result: {{totalRecord}}</span>
+</div>
+<div *ngIf="!errMsg" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let element of searchResultArr.element | keyvalue">
+    <mat-card class="mat-elevation-z4">
+      <img mat-card-image *ngIf="!searchResultArr.resource[element.key].fileArr[0].Photo?.length" src="../../../assets/home.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-image *ngIf="searchResultArr.resource[element.key].fileArr[0].Photo?.length > 0" src="{{resourceURL}}photo/{{searchResultArr.resource[element.key].fileArr[0].Photo[0]}}" alt="Photo of house">
+      <mat-card-content>
+        <p>${{addCommas(element.value.ListPrice)}}</p>
+        <p>{{element.value.UnparsedAddress}}, {{element.value.City}}</p>
+        <p>{{element.value.ListAgentAOR}}</p>
+      </mat-card-content>
+    </mat-card> 
+  </div>
+</div>
+<div *ngIf="errMsg">
+  <p>{{errMsg}}</p>
+</div>
+<mat-paginator [length]="totalRecord"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent = $event; onPaginateChange($event)">
+</mat-paginator>

@@ -1,0 +1,83 @@
+<app-sellers-nav-bar></app-sellers-nav-bar>
+
+<div class="container-div bg-SellerPropertyFound sellers clearfix">
+  <div class="wrapper clearfix">
+    <div class="titles-con">
+      <div class="titles large">
+        Property Found or Not Found
+      </div>
+    </div>
+
+    <div class="property-found-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+      <div fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="50%">
+        <div #mapContainer id="map"></div>
+      </div>
+
+      <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="50%">
+        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+
+          <div fxFlex="100%">
+            <mat-form-field appearance="standard">
+              <mat-label>Address</mat-label>
+              <input matInput placeholder="Address" [(ngModel)]='address' value="">
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100%">
+            <!-- <mat-form-field appearance="standard">
+              <mat-label>Select Community</mat-label>
+              <mat-select [(ngModel)]="selectedCommunity" name="select_community">
+                <mat-option value=''>-- None --</mat-option>
+                <mat-option *ngFor="let community of communityList" [value]="community.value">
+                  {{community.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field> -->
+            <mat-form-field appearance="standard">
+              <mat-label>Why you want to see home value</mat-label>
+              <mat-select [(ngModel)]="selectedwhy" name="select_why">
+                <mat-option value="1">want to sell now</mat-option>
+                <mat-option value="2">want to sell later in two month</mat-option>
+                <mat-option value="3">want to sell after buy another house</mat-option>
+                <mat-option value="4">want to refinance to get some money out</mat-option>
+                <mat-option value="5">just curious  , the house value not selling</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100%">
+            <mat-form-field appearance="standard">
+              <mat-label>First & Last Name</mat-label>
+              <input matInput placeholder="First & Last Name" [formControl]="customerName" [(ngModel)]='insertedcustomer' required>
+              <mat-error *ngIf="customerName.invalid">{{getCustomerNameErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100%">
+            <mat-form-field appearance="standard">
+              <mat-label>Phone</mat-label>
+              <input matInput placeholder="Phone" [formControl]="phone" [(ngModel)]='insertedphone' required>
+              <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100%">
+            <mat-form-field appearance="standard">
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="pat@example.com" [formControl]="email" [(ngModel)]='insertedemail' required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100%">
+            <button class="sellers-property-found-button" (click)="getHomeValue()">Get Home Value</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

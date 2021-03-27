@@ -1,0 +1,132 @@
+<app-sellers-nav-bar></app-sellers-nav-bar>
+
+<div class="container-div bg-SellerGetHome sellers clearfix">
+  <div class="wrapper clearfix">
+    <div class="subs large">
+      One of our top realtor will contact you  very soon , and will prepare a detailed Comparative Market analysis Report for you according to today's market with the best tool available only to Certified Realtor
+    </div>
+
+    <div class="titles-con">
+      <div class="titles large">
+        Estimated House Value
+      </div>
+    </div>
+
+    <div class="container-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+        <mat-form-field appearance="standard">
+          <mat-label>Select City</mat-label>
+          <mat-select [(ngModel)]="selectedCity" (ngModelChange)="onChangeCity($event)" name="select_city">
+            <mat-option value=''>-- None --</mat-option>
+            <mat-optgroup *ngFor="let group of StateOrProvinceCityList" [label]="group.name" [disabled]="group.disabled">
+              <mat-option *ngFor="let city of group.cityList" [value]="city.value">
+                {{city.viewValue}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+        <mat-form-field appearance="standard">
+          <mat-label>Select Community</mat-label>
+          <mat-select [(ngModel)]="selectedSubdivisionName" name="selectedSubdivisionName">
+            <mat-option value=''>-- None --</mat-option>
+            <mat-option *ngFor="let element of SubdivisionNameList" [value]="element.value">
+              {{element.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+
+    <div class="container-content" fxLayout="row wrap" fxLayoutGap="20px grid">
+
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="30%">
+        <div class="search-filter">Search Filter</div>
+        <div fxLayout="row wrap">
+
+          <div fxFlex="100%">
+            <mat-form-field appearance="standard">
+              <mat-label>Price Min</mat-label>
+              <input matInput placeholder="Min" [(ngModel)]='priceMin'>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100%">
+            <mat-form-field appearance="standard">
+              <mat-label>Price Max</mat-label>
+              <input matInput placeholder="Max" [(ngModel)]='priceMax'>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100%">
+            <mat-form-field appearance="standard">
+              <mat-label>Select Property Type</mat-label>
+              <mat-select [(ngModel)]="selectedPropertyType" name="select_propertytype">
+                <mat-option value=''>-- None --</mat-option>
+                <mat-option *ngFor="let type of propertyTypeList" [value]="type.value">
+                  {{type.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+    
+          <div fxFlex="100%">
+            <button class="sellers-get-home-button" (click)="getHomeValue()">Apply Filter</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div fxFlex="75%" fxFlex.xs="100%" fxFlex.sm="70%">
+
+        <div class="search-result-txt">
+          <span>Search Result: {{totalRecord}}</span>
+        </div>
+        <div *ngIf="!errMsg" class="container-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+          <div fxFlex="100%" *ngFor="let element of searchResultArr.element | keyvalue">
+            <!-- <mat-card class="mat-elevation-z4">
+              <img mat-card-image *ngIf="!element.resource[0].Photo?.length" src="../../../assets/home.jpg" alt="Photo of a Shiba Inu">
+              <img mat-card-image *ngIf="element.resource[0].Photo?.length > 0" src="{{resourceURL}}photo/{{element.resource[0].Photo[0]}}" alt="Photo of a Shiba Inu">
+              <mat-card-content>
+                <p>${{addCommas(element.element.ListPrice)}}</p>
+                <p>{{element.element.UnparsedAddress}}, {{element.element.City}}</p>
+                <p>{{element.element.ListAgentAOR}}</p>
+              </mat-card-content>
+            </mat-card>  -->
+            <div class="item-cnt" fxLayout="row wrap" fxLayoutGap="20px grid">
+              <div class="photo-cnt" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
+                <img mat-card-image *ngIf="!searchResultArr.resource[element.key].fileArr[0].Photo?.length" src="../../../assets/home.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-image *ngIf="searchResultArr.resource[element.key].fileArr[0].Photo?.length > 0" src="{{resourceURL}}photo/{{searchResultArr.resource[element.key].fileArr[0].Photo[0]}}" alt="Photo of house">
+              </div>
+              <div class="item-right-cnt" fxFlex="75%" fxFlex.xs="100%" fxFlex.sm="50%">
+                <mat-card-content>
+                  <p>${{addCommas(element.value.ListPrice)}}</p>
+                  <p>{{element.value.UnparsedAddress}}, {{element.value.City}}</p>
+                  <p>{{element.value.ListAgentAOR}}</p>
+                </mat-card-content>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="errMsg">
+          <p>{{errMsg}}</p>
+        </div>
+        <mat-paginator [length]="totalRecord"
+                      [pageSize]="pageSize"
+                      [pageSizeOptions]="pageSizeOptions"
+                      (page)="pageEvent = $event; onPaginateChange($event)">
+        </mat-paginator>
+
+      </div>
+
+    </div>
+
+    
+
+  </div>
+</div>

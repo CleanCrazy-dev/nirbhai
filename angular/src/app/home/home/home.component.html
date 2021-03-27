@@ -1,0 +1,695 @@
+<!-- <app-home-nav-bar></app-home-nav-bar> -->
+
+<app-scroll-to-top></app-scroll-to-top>
+
+<!-- <div class="container-fluid">
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="wrapper">
+        <img [src]="image" alt="For Sale">
+      </div>
+      <div class="carousel-caption">
+        <h3>For Sale</h3>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div> -->
+
+<!-- <div class="home-search-cnt" [ngClass]="{
+  'for-sale': isForSale,
+  'for-rent': isForRent,
+  'for-commercial': isCommercial
+}">
+  <div id="homepage-slogan">
+    <h1>Find Your Dream Home</h1>
+  </div>
+  <div class="home-search">
+    <div class="home-search-form">
+      <nav mat-tab-nav-bar>
+        <a mat-tab-link *ngFor="let link of links"
+           (click)="selAction(link)"
+           [active]="activeLink == link"> {{link}} </a>
+      </nav>
+      <form class="example-form">
+        <mat-form-field class="home-search-field" appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="Type any City" name="property_search_input" [(ngModel)]="property_search_input" [value]="property_search_input">
+        </mat-form-field>
+      
+        <button mat-flat-button mat-raised-button (click)="propertySearch()">Search</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="vertical-container" fxLayout="column">
+  <div class="box-title">New Real Estate</div>
+
+  <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
+      <swiper
+          *ngIf="type == 'component' && show"
+          class="swiper-container"
+          fxFlex="auto"
+          [config]="config"
+          [disabled]="disabled"
+          (indexChange)="onIndexChange($event)"
+          (swiperTransitionStart)="onSwiperEvent('transitionStart')"
+          (swiperTransitionEnd)="onSwiperEvent('transitionEnd')"
+      >
+          <div *ngFor="let slide of slides" class="swiper-slide">
+              <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                  <img [src]="slide" alt="image" class="slide">
+              </div>
+          </div>
+      </swiper>
+  </div>
+</div>
+-->
+
+<div class="padding-t-b-30 container-div" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+  <div class="container-div bg-HomeWorth sellers clearfix" id="sellers_section" fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+    <div class="wrapper clearfix">
+      <div class="titles-con">
+          <div class="titles large" style="color: #000;">
+              Thinking of Selling?
+          </div>
+          <br>
+          <div class="titles large">
+              See What Your <span class="hasRed">Home Is Worth</span>
+          </div>
+          <div class="subs large">
+              Type your address and the type of home you live in below:
+          </div>
+      </div>
+
+      <div class="hic-2-address-form-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <AutocompleteComponent (setAddress)="getAddress($event)" adressType="geocode"></AutocompleteComponent>
+        </div>
+
+        <div class="hic-2-address-form-content" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+          <button type="submit" id="hic-2-address-submit" (click)="gotoPropertyFound()">Continue</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container-div cta-input-con header clearfix" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <div class="wrapper clearfix">
+      <div class="header-box clearfix">
+        <div class="quicksearch">
+          <div id="idx-search_1" class="rewmodule idx-search">
+            <div id="feature-quicksearch" class="grid_12">
+      
+              <div class="quicksearch-heading">FIND YOUR NEXT HOME TODAY!</div>
+              <div class="quicksearch-subheading">FILL OUT THE FORM BELOW TO CHOOSE YOUR PREFERENCES</div>
+            
+              <div id="city-feed-switcher">
+                <ul class="feed-switcher">
+                  <li class="current"><a data-city="calgary" data-feed=creb>Calgary</a></li>
+                  <li><a data-city="other" data-feed=crea>Canada (Other)</a></li>
+                </ul>
+                <div class="city-includes">This includes Airdrie, Okotoks, Cochrane, Springbank, Heritage Pointe, Chestermere, Rural & More...</div>
+              </div>
+            
+              <form action="" method="get" class="idx-quick-search grid_12">
+                  <input type="hidden" name="refine" value="true">
+                  <input type="hidden" name="submit" value="true">
+                  <input type="hidden" name="feed" value="creb">
+                  <input type="hidden" name="search_city" value="Calgary">
+                  
+                  <div id="field-location" class="field field x12 o0">
+                    <label></label>
+                    <div class="details">
+                      <div class="ac-input">
+                        <input name="search_location" value="" placeholder="City, Neighborhood, Address, Postal Code or MLS&reg; #" class="x12 location autocomplete">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="field-price" class="field field x12 o0 pair">
+                    <label>Price Range</label>
+                    <div class="details">
+                      <div class="sale range">
+                        <span class="min">
+                          <select id="minimum_price" name="minimum_price">
+                            <option value="">Min</option>
+                            <option value="50000">$50,000</option>
+                            <option value="75000">$75,000</option>
+                            <option value="100000">$100,000</option>
+                            <option value="125000">$125,000</option>
+                            <option value="150000">$150,000</option>
+                            <option value="175000">$175,000</option>
+                            <option value="200000">$200,000</option>
+                            <option value="225000">$225,000</option>
+                            <option value="250000">$250,000</option>
+                            <option value="275000">$275,000</option>
+                            <option value="300000">$300,000</option>
+                            <option value="325000">$325,000</option>
+                            <option value="350000">$350,000</option>
+                            <option value="375000">$375,000</option>
+                            <option value="400000">$400,000</option>
+                            <option value="425000">$425,000</option>
+                            <option value="450000">$450,000</option>
+                            <option value="475000">$475,000</option>
+                            <option value="500000">$500,000</option>
+                            <option value="550000">$550,000</option>
+                            <option value="600000">$600,000</option>
+                            <option value="650000">$650,000</option>
+                            <option value="700000">$700,000</option>
+                            <option value="750000">$750,000</option>
+                            <option value="800000">$800,000</option>
+                            <option value="850000">$850,000</option>
+                            <option value="900000">$900,000</option>
+                            <option value="950000">$950,000</option>
+                            <option value="1000000">$1,000,000</option>
+                            <option value="1100000">$1,100,000</option>
+                            <option value="1200000">$1,200,000</option>
+                            <option value="1300000">$1,300,000</option>
+                            <option value="1400000">$1,400,000</option>
+                            <option value="1500000">$1,500,000</option>
+                            <option value="1600000">$1,600,000</option>
+                            <option value="1700000">$1,700,000</option>
+                            <option value="1800000">$1,800,000</option>
+                            <option value="1900000">$1,900,000</option>
+                            <option value="2000000">$2,000,000</option>
+                            <option value="2100000">$2,100,000</option>
+                            <option value="2200000">$2,200,000</option>
+                            <option value="2300000">$2,300,000</option>
+                            <option value="2400000">$2,400,000</option>
+                            <option value="2500000">$2,500,000</option>
+                            <option value="2600000">$2,600,000</option>
+                            <option value="2700000">$2,700,000</option>
+                            <option value="2800000">$2,800,000</option>
+                            <option value="2900000">$2,900,000</option>
+                            <option value="3000000">$3,000,000</option>
+                            <option value="3250000">$3,250,000</option>
+                            <option value="3500000">$3,500,000</option>
+                            <option value="3750000">$3,750,000</option>
+                            <option value="4000000">$4,000,000</option>
+                            <option value="4500000">$4,500,000</option>
+                            <option value="5000000">$5,000,000</option>
+                            <option value="5500000">$5,500,000</option>
+                            <option value="6000000">$6,000,000</option>
+                            <option value="6500000">$6,500,000</option>
+                            <option value="7000000">$7,000,000</option>
+                            <option value="7500000">$7,500,000</option>
+                            <option value="8000000">$8,000,000</option>
+                            <option value="8500000">$8,500,000</option>
+                            <option value="9000000">$9,000,000</option>
+                            <option value="9500000">$9,500,000</option>
+                            <option value="10000000">$10,000,000</option>
+                          </select>
+                        </span>
+                        <span class="tween"> to </span>
+                        <span class="max">
+                          <select id="maximum_price" name="maximum_price">
+                            <option value="">Max</option>
+                            <option value="50000">$50,000</option>
+                            <option value="75000">$75,000</option>
+                            <option value="100000">$100,000</option>
+                            <option value="125000">$125,000</option>
+                            <option value="150000">$150,000</option>
+                            <option value="175000">$175,000</option>
+                            <option value="200000">$200,000</option>
+                            <option value="225000">$225,000</option>
+                            <option value="250000">$250,000</option>
+                            <option value="275000">$275,000</option>
+                            <option value="300000">$300,000</option>
+                            <option value="325000">$325,000</option>
+                            <option value="350000">$350,000</option>
+                            <option value="375000">$375,000</option>
+                            <option value="400000">$400,000</option>
+                            <option value="425000">$425,000</option>
+                            <option value="450000">$450,000</option>
+                            <option value="475000">$475,000</option>
+                            <option value="500000">$500,000</option>
+                            <option value="550000">$550,000</option>
+                            <option value="600000">$600,000</option>
+                            <option value="650000">$650,000</option>
+                            <option value="700000">$700,000</option>
+                            <option value="750000">$750,000</option>
+                            <option value="800000">$800,000</option>
+                            <option value="850000">$850,000</option>
+                            <option value="900000">$900,000</option>
+                            <option value="950000">$950,000</option>
+                            <option value="1000000">$1,000,000</option>
+                            <option value="1100000">$1,100,000</option>
+                            <option value="1200000">$1,200,000</option>
+                            <option value="1300000">$1,300,000</option>
+                            <option value="1400000">$1,400,000</option>
+                            <option value="1500000">$1,500,000</option>
+                            <option value="1600000">$1,600,000</option>
+                            <option value="1700000">$1,700,000</option>
+                            <option value="1800000">$1,800,000</option>
+                            <option value="1900000">$1,900,000</option>
+                            <option value="2000000">$2,000,000</option>
+                            <option value="2100000">$2,100,000</option>
+                            <option value="2200000">$2,200,000</option>
+                            <option value="2300000">$2,300,000</option>
+                            <option value="2400000">$2,400,000</option>
+                            <option value="2500000">$2,500,000</option>
+                            <option value="2600000">$2,600,000</option>
+                            <option value="2700000">$2,700,000</option>
+                            <option value="2800000">$2,800,000</option>
+                            <option value="2900000">$2,900,000</option>
+                            <option value="3000000">$3,000,000</option>
+                            <option value="3250000">$3,250,000</option>
+                            <option value="3500000">$3,500,000</option>
+                            <option value="3750000">$3,750,000</option>
+                            <option value="4000000">$4,000,000</option>
+                            <option value="4500000">$4,500,000</option>
+                            <option value="5000000">$5,000,000</option>
+                            <option value="5500000">$5,500,000</option>
+                            <option value="6000000">$6,000,000</option>
+                            <option value="6500000">$6,500,000</option>
+                            <option value="7000000">$7,000,000</option>
+                            <option value="7500000">$7,500,000</option>
+                            <option value="8000000">$8,000,000</option>
+                            <option value="8500000">$8,500,000</option>
+                            <option value="9000000">$9,000,000</option>
+                            <option value="9500000">$9,500,000</option>
+                            <option value="10000000">$10,000,000</option>
+                          </select>
+                        </span>
+                      </div>
+                      <div class="rent range hidden">
+                        <span class="min">
+                          <select id="minimum_rent" name="minimum_rent"  disabled>
+                            <option value="">Min</option>
+                            <option value="500">$500</option>
+                            <option value="600">$600</option>
+                            <option value="700">$700</option>
+                            <option value="800">$800</option>
+                            <option value="900">$900</option>
+                            <option value="1000">$1,000</option>
+                            <option value="1250">$1,250</option>
+                            <option value="1500">$1,500</option>
+                            <option value="1750">$1,750</option>
+                            <option value="2000">$2,000</option>
+                            <option value="2250">$2,250</option>
+                            <option value="2500">$2,500</option>
+                            <option value="2750">$2,750</option>
+                            <option value="3000">$3,000</option>
+                            <option value="3250">$3,250</option>
+                            <option value="3500">$3,500</option>
+                            <option value="3750">$3,750</option>
+                            <option value="4000">$4,000</option>
+                            <option value="4250">$4,250</option>
+                            <option value="4500">$4,500</option>
+                            <option value="4750">$4,750</option>
+                            <option value="5000">$5,000</option>
+                            <option value="5500">$5,500</option>
+                            <option value="6000">$6,000</option>
+                            <option value="6500">$6,500</option>
+                            <option value="7000">$7,000</option>
+                            <option value="7500">$7,500</option>
+                            <option value="8000">$8,000</option>
+                            <option value="8500">$8,500</option>
+                            <option value="9000">$9,000</option>
+                            <option value="9500">$9,500</option>
+                            <option value="10000">$10,000</option>
+                          </select>
+                        </span>
+                        <span class="tween"> to </span>
+                        <span class="max">
+                          <select id="maximum_rent" name="maximum_rent"  disabled>
+                            <option value="">Max</option>
+                            <option value="500">$500</option>
+                            <option value="600">$600</option>
+                            <option value="700">$700</option>
+                            <option value="800">$800</option>
+                            <option value="900">$900</option>
+                            <option value="1000">$1,000</option>
+                            <option value="1250">$1,250</option>
+                            <option value="1500">$1,500</option>
+                            <option value="1750">$1,750</option>
+                            <option value="2000">$2,000</option>
+                            <option value="2250">$2,250</option>
+                            <option value="2500">$2,500</option>
+                            <option value="2750">$2,750</option>
+                            <option value="3000">$3,000</option>
+                            <option value="3250">$3,250</option>
+                            <option value="3500">$3,500</option>
+                            <option value="3750">$3,750</option>
+                            <option value="4000">$4,000</option>
+                            <option value="4250">$4,250</option>
+                            <option value="4500">$4,500</option>
+                            <option value="4750">$4,750</option>
+                            <option value="5000">$5,000</option>
+                            <option value="5500">$5,500</option>
+                            <option value="6000">$6,000</option>
+                            <option value="6500">$6,500</option>
+                            <option value="7000">$7,000</option>
+                            <option value="7500">$7,500</option>
+                            <option value="8000">$8,000</option>
+                            <option value="8500">$8,500</option>
+                            <option value="9000">$9,000</option>
+                            <option value="9500">$9,500</option>
+                            <option value="10000">$10,000</option>
+                          </select>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div id="field-type" class="field field x6 o0 type">
+                    <label>Property Type</label>
+                    <div class="details">
+                      <select name="search_type" class="x12">
+                        <option value=""> All Properties</option>
+                        <option value="Residential"> Residential</option>
+                        <option value="Land"> Land</option>
+                        <option value="Commercial"> Commercial</option>
+                        <option value="Mobile"> Mobile</option>
+                        <option value="Agri-Business"> Agri-business</option>
+                        <option value="Multi-Family"> Multi-family</option>
+                        <option value="Rental"> Rental</option>
+                      </select>
+                      <input type="hidden" name="idx" value="creb">
+                    </div>
+                  </div>
+                  
+                  <div id="field-rooms" class="field field x6 o6 rooms">
+                    <div class="details">
+                      <div class="pair">
+                        <div class="left">
+                          <label>Beds</label>
+                          <div class="details">
+                            <select name="minimum_bedrooms">
+                              <option value="">-</option>
+                              <option value="1">1+</option>
+                              <option value="2">2+</option>
+                              <option value="3">3+</option>
+                              <option value="4">4+</option>
+                              <option value="5">5+</option>
+                              <option value="6">6+</option>
+                              <option value="7">7+</option>
+                              <option value="8">8+</option>
+                            </select>
+                          </div>
+                        </div>
+                        
+                        <div class="right">
+                          <label>Baths</label>
+                          <div class="details">
+                            <select name="minimum_bathrooms">
+                              <option value="">-</option>
+                              <option value="1">1+</option>
+                              <option value="2">2+</option>
+                              <option value="3">3+</option>
+                              <option value="4">4+</option>
+                              <option value="5">5+</option>
+                              <option value="6">6+</option>
+                              <option value="7">7+</option>
+                              <option value="8">8+</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="count" id="results-count">5,198 Listings Found</div>
+      
+                  <div class="btnset">
+                      <button class="rewbtn primary" type="submit" (click)="gotoSearchList()">Search <span class="additional-text">Listings <i class="icon-pin"></i></span></button>
+                  </div>
+              </form>
+            </div>
+          </div>	
+        </div>
+      
+        <a id="buyers" class="btn-triggersNoMobileAction animated slideInLeft" routerLink="/buyers/calgary-listing">BUYERS
+          <mat-icon style="vertical-align: middle; margin-left: 5px;">keyboard_arrow_down</mat-icon>
+        </a>
+        <a class="second btn-triggersNoMobileAction animated slideInRight" id="sellers" routerLink="/sellers/home">SELLERS 
+          <mat-icon style="vertical-align: middle; margin-left: 5px;">keyboard_arrow_down</mat-icon>
+        </a>
+        <a class="third btn-triggersNoMobileAction animated slideInRight" id="mortgage" routerLink="/mortgage/home">MORTGAGE 
+          <mat-icon style="vertical-align: middle; margin-left: 5px;">keyboard_arrow_down</mat-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-div bg-mortgage mortgage clearfix" id="mortgage_section" fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+    <div class="wrapper clearfix padding-t-b-30">
+        <!-- <div class="titles-con">
+            <div class="titles large" style="color: #000;">
+                Mortgage Section
+            </div>
+        </div> -->
+  
+    </div>
+  </div>
+  
+</div>
+
+<div class="search-over"></div>
+
+<div class="container-div bg-searchArea buyers clearfix" id="buyers_section">
+
+
+  <div class="wrapper clearfix padding-t-b-30">
+
+      <div class="titles large">Find Your Dream Home</div>
+      <div class="subs large">
+          Where would you like to live?
+      </div>
+
+      <div class="search-advenced clearfix">
+          <div class="form-count-con clearfix">
+              <div class="form-count clearfix">
+                  <span>Properties Found:</span>
+                  <strong id="hsTotMatches">25,698</strong>
+              </div>
+          </div>
+          <form class="form" action="/index.asp" method="get" name="frmHomePageSearch" id="frmHomePageSearch">
+              <input type="hidden" name="PageAction" value="searchresult">
+              <input type="hidden" name="SearchType" id="SearchType" value="">
+              <input type="hidden" id="firstvalue" name="firstvalue" value="">
+              <input type="hidden" id="DontUpdateTotal" name="DontUpdateTotal" value="1">
+              <div class="main-par clearfix">
+                  <div class="main autoCompleteList-con clearfix">
+                      <input name="searchDetails" id="searchDetails" class="medium term" AUTOCOMPLETE="OFF"
+                          type="text" autocomplete="off" placeholder="Type any City, Community or Street Name"
+                          onclick="showAutoCompleteOnClick(); showDots();"
+                          onKeyPress="return mainSearchAjax(this,event)"
+                          onkeyup="yespaste=0; mainSearchCharType(event);" onpaste="yespaste=1; "
+                          onblur="if (yespaste == 1 || this.value=='') {this.value=this.value; }mainSearchCloseSuggested(); if(this.value=='')this.value='Type any City, Community or Street Name'"
+                          onfocus="if(this.value=='Type any City, Community or Street Name'){this.value=''}"
+                          onChange="LoadMapLink();">
+
+                      <button class="medium btn submit-btn" type="submit">Show results!</button>
+                      <div class="autoc_big">
+                          <div id="searchajaxdiv">
+                              Where would you like to look?
+                          </div>
+                      </div>
+                  </div>
+                  <a class="more-options-btn" href="#"><i class="fa fa-chevron-down"></i> more options</a>
+                  <div class="options-con clearfix">
+                      <div class="form-group medium typeofhome">
+                          <span class="label-name">Type of Home</span>
+                          <select name="Type2">
+                              <option value='any'>Any Type of Home</option>
+                              <option value='any'>Any Type of Home</option>
+<option value='DETCH'>Detached Home</option><option value='APTLO'>Apartment Low Rise</option><option value='APTHI'>Apartment Highrise</option><option value='TOWNH'>Townhouse</option><option value='ATTCH'>Attached</option><option value='VLOT'>Vacant Lot</option><option value='HDUP'>Half Duplex</option><option value='SWIDE'>Single Wide Mobile Home</option><option value='DUPSS'>Duplex Side by Side</option><option value='COTGE'>Cottage</option><option value='4Plex'>4 units in one building</option><option value='DWIDE'>Double Wide Mobile Home</option><option value='DUPUD'>Updown Duplex</option><option value='STACK'>Stacked Townhome</option><option value='3PLEX'>3 units in one building</option><option value='Land'> Land</option><option value='Rental'>Rental</option>
+                          </select>
+                      </div>
+                      <div class="form-group medium price">
+                          <span class="label-name">
+                              <strong class="low">
+                                  Price: <span></span> -
+                              </strong>
+                              <strong class="high">
+                                  <span></span>
+                              </strong>
+                          </span>
+                          <input name="priceRangeTo" type="hidden">
+                          <input name="priceRangeFrom" type="hidden">
+                          <div class="slider"></div>
+                      </div>
+                      <div class="form-group medium baths">
+                          <span class="label-name">
+                              <strong class="high">
+                                  Bath(s): <span></span>
+                              </strong>
+                          </span>
+                          <input name="bathrooms" type="hidden">
+                          <div class="slider"></div>
+                      </div>
+                      <div class="form-group medium beds">
+                          <span class="label-name">
+                              <strong class="high">
+                                  Bed(s): <span></span>
+                              </strong>
+                          </span>
+                          <input name="bedrooms" type="hidden">
+                          <div class="slider"></div>
+                      </div>
+                      <div class="form-group medium salerent">
+                          <span class="label-name">Sale / Rent</span>
+                          <select name="Sale_Lease">
+                              <option value="Sale" selected="">Sale</option>
+                              <option value="Lease">Rent</option>
+                          </select>
+                      </div>
+                      <div class="form-group medium garages">
+                          <span class="label-name">Garage(s)</span>
+                          <select class="medium" name="garages">
+                              <option value="any" selected="selected">Any</option>
+                              <option value="1">1+</option>
+                              <option value="2">2+</option>
+                              <option value="3">3+</option>
+                              <option value="4">4+</option>
+                              <option value="5">5+</option>
+                          </select>
+                      </div>
+                      <div class="form-group medium kitchens">
+                          <span class="label-name">Kitchen(s)</span>
+                          <select class="medium" name="kitchens">
+                              <option value="0" selected="selected">Any</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                          </select>
+                      </div>
+                      <div class="form-group medium pool">
+                          <span class="label-name">Sort By:</span>
+                          <select class="medium" name="SortOrder" id="SortOrder">
+                              <option value="highest">Highest Cost</option>
+                              <option value="lowest">Lowest Cost</option>
+                              <option value="listDate" selected="selected">Newly Listed</option>
+                          </select>
+                      </div>
+                      <div class="update-close">
+                          <button class="medium btn submit-btn" type="submit">Show results!</button>
+                          <span class="or">or</span>
+                          <a class="map-search-btn" id="FullAddressURL"
+                              href="javascript:alert('Please enter location.');"><i class="fa fa-map-marker"></i>
+                              Map Search</a>
+                          <a class="close-options-btn" href="javascript:void(0);"><i
+                                  class="fa fa-times-circle-o"></i> close options</a>
+                      </div>
+                  </div>
+              </div>
+
+          </form>
+      </div>
+
+
+  </div>
+</div>
+
+<div class="explorer-calgary-re-title">
+  <span>Explore Calgary Real Estate</span>
+</div>
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div class="content-tile" fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33.33%">
+    <mat-icon class="material-icons-outlined" (click)="gotoCalgaryList(1)">house</mat-icon>
+    <div class="calgary-re-txt" (click)="gotoCalgaryList(1)">Foreclosure / Bankrupt Properties</div>
+  </div>
+  <div class="content-tile" fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33.33%">
+    <mat-icon class="material-icons-outlined" (click)="gotoCalgaryList(2)">house_siding</mat-icon>
+    <div class="calgary-re-txt" (click)="gotoCalgaryList(2)">Today Listed Houses</div>
+  </div>
+  <div class="content-tile" fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33.33%">
+    <mat-icon class="material-icons-outlined" (click)="gotoCalgaryList(3)">home_work</mat-icon>
+    <div class="calgary-re-txt" (click)="gotoCalgaryList(3)">Luxury Homes</div>
+  </div>
+  <div class="content-tile" fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33.33%">
+    <mat-icon class="material-icons-outlined" (click)="gotoCalgaryList(4)">water_damage</mat-icon>
+    <div class="calgary-re-txt" (click)="gotoCalgaryList(4)">Waterfront Homes</div>
+  </div>
+  <div class="content-tile" fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33.33%">
+    <mat-icon class="material-icons-outlined" (click)="gotoCalgaryList(5)">legend_toggle</mat-icon>
+    <div class="calgary-re-txt" (click)="gotoCalgaryList(5)">Lot for sale</div>
+  </div>
+  <div class="content-tile" fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33.33%">
+    <mat-icon class="material-icons-outlined" (click)="gotoCalgaryList(6)">account_balance</mat-icon>
+    <div class="calgary-re-txt" (click)="gotoCalgaryList(6)">Special Investment Properties</div>
+  </div>
+  <div class="content-tile" fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33.33%">
+    <mat-icon class="material-icons-outlined" (click)="gotoCalgaryList(7)">foundation</mat-icon>
+    <div class="calgary-re-txt" (click)="gotoCalgaryList(7)">Buy Fix and flip properties</div>
+  </div>
+</div>
+
+<div class="explorer-Communities-Neighbourhoods-title">
+  <span>Explore Communities & Neighbourhoods</span>
+</div>
+<div class="Communities-Neighbourhoods-content">
+  <div class="img" fxFlex="33.33%" fxHide.xs fxHide.sm></div>
+  <div class="items" fxFlex="66.67%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <ul>
+      <li><a title="Aspen Woods">Aspen Woods</a></li>
+      <li><a title="Auburn Bay">Auburn Bay</a></li>
+      <li><a title="Carrington">Carrington</a></li>
+      <li><a title="Christie Park">Christie Park</a></li>
+      <li><a title="Cityscape">Cityscape</a></li>
+      <li><a title="Coventry Hills">Coventry Hills</a></li>
+      <li><a title="Cranston">Cranston</a></li>
+      <li><a title="Downtown West End Condos">Downtown West End Condos</a></li>
+      <li><a title="Elgin">Elgin</a></li>
+      <li><a title="GlenEagles">GlenEagles</a></li>
+      <li><a title="Inverness">Inverness</a></li>
+      <li><a title="Lake Bonavista">Lake Bonavista</a></li>
+      <li><a title="Lynx Ridge">Lynx Ridge</a></li>
+      <li><a title="Mahogany">Mahogany</a></li>
+      <li><a title="Mayland Heights">Mayland Heights</a></li>
+      <li><a title="Monterey Park">Monterey Park</a></li>
+      <li><a title="Panorama Hills">Panorama Hills</a></li>
+      <li><a title="Prestwick">Prestwick</a></li>
+      <li><a title="Rainbow Falls">Rainbow Falls</a></li>
+      <li><a title="Redstone">Redstone</a></li>
+      <li><a title="Rocky Ridge">Rocky Ridge</a></li>
+      <li><a title="Rundle">Rundle</a></li>
+      <li><a title="Saddle Ridge">Saddle Ridge</a></li>
+      <li><a title="Skyview Ranch">Skyview Ranch</a></li>
+      <li><a title="Springbank Hill">Springbank Hill</a></li>
+      <li><a title="Strathcona Park">Strathcona Park</a></li>
+      <li><a title="Tuscany">Tuscany</a></li>
+      <li><a title="Varsity">Varsity</a></li>
+      <li><a title="West Springs">West Springs</a></li>
+      <li><a title="Westgate Park Condos">Westgate Park Condos</a></li>
+      <li><a class="view-more" >View More</a><mat-icon>keyboard_arrow_right</mat-icon></li>
+    </ul>
+  </div>
+</div>
+
+<div class="our-listing-txt">
+  <span>Our Listing</span>
+</div>
+<div *ngIf="!errMsg" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let ourList of ourListingArr">
+    <mat-card class="mat-elevation-z4">
+      <!-- <img mat-card-image *ngIf="!ourListingArr.resource[ourList.key].fileArr[0].Photo?.length" src="../../../assets/home.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-image *ngIf="ourListingArr.resource[ourList.key].fileArr[0].Photo?.length > 0" src="{{RESOURCE_URL}}photo/{{ourListingArr.resource[ourList.key].fileArr[0].Photo[0]}}" alt="Photo of a Shiba Inu"> -->
+      <img mat-card-image *ngIf="ourList.PhotosCount != '0'" 
+          src="{{RESOURCE_URL}}photo/{{ourList.ListingKeyNumeric}}_1.jpeg" 
+          onerror="javascript:this.src='../../../assets/home.jpg'" 
+          alt="Photo of house">
+      <mat-card-content>
+        <p>${{addCommas(ourList.ListPrice)}}</p>
+        <p>{{ourList.UnparsedAddress}}, {{ourList.City}}</p>
+        <p>{{ourList.ListAgentAOR}}</p>
+      </mat-card-content>
+    </mat-card> 
+  </div>
+</div>
+<div *ngIf="errMsg">
+  <p>{{errMsg}}</p>
+</div>

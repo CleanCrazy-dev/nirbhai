@@ -1,0 +1,124 @@
+<app-sellers-nav-bar></app-sellers-nav-bar>
+
+<div class="container-div bg-HomeWorth sellers clearfix" id="sellers_section">
+
+  <div class="wrapper clearfix padding-t-b-30">
+      <div class="titles-con">
+          <div class="titles large" style="color: #000;">
+              Thinking of Selling?
+          </div>
+          <br>
+          <div class="titles large">
+              See What Your <span class="hasRed">Home Is Worth</span>
+          </div>
+          <div class="subs large">
+              Type your address and the type of home you live in below:
+          </div>
+      </div>
+
+      <!-- <form class="hic-2-address-form" id="hic-2-address-form" >
+          <input type="hidden" name="lat" id="glat">
+          <input type="hidden" name="lng" id="glng">
+          <input type="hidden" name="street_number" id="street_number">
+          <input type="hidden" name="route" id="route">
+          <input type="hidden" name="locality" id="locality">
+          <input type="hidden" name="administrative_area_level_1" id="administrative_area_level_1">
+          <input type="hidden" name="country" id="country">
+          <input type="hidden" name="postal_code" id="postal_code">
+
+          <div class="hic-2-address-form-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+            <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+              <mat-form-field appearance="standard">
+                <mat-label>Select your City</mat-label>
+                <mat-select [(ngModel)]="selectedCity" name="city_select">
+                  <mat-option *ngFor="let city of cityList" [value]="city.value">
+                    {{city.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+              <mat-form-field appearance="standard">
+                <mat-label>Enter your Community</mat-label>
+                <input matInput placeholder="Community">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div class="hic-2-address-form-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+            <div fxFlex="16.66%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+              <mat-form-field appearance="standard">
+                <mat-label>Enter your Unit Number</mat-label>
+                <input matInput placeholder="Unit Number">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="16.66%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+              <mat-form-field appearance="standard">
+                <mat-label>Enter your Street No</mat-label>
+                <input matInput placeholder="Street No">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="16.66%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+              <mat-form-field appearance="standard">
+                <mat-label>Enter your Street Name</mat-label>
+                <input matInput placeholder="Street Name">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="16.66%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+              <mat-form-field appearance="standard">
+                <mat-label>Select your Street Type</mat-label>
+                <mat-select [(ngModel)]="selectedStateOrProvince" name="StateOrProvince_select">
+                  <mat-option *ngFor="let element of stateOrProvinceList" [value]="element.value">
+                    {{element.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="16.66%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+              <mat-form-field appearance="standard">
+                <mat-label>Select your Street Direction</mat-label>
+                <mat-select [(ngModel)]="selectedStreetDirection" name="StreetDirection_select">
+                  <mat-option *ngFor="let element of streetDirectionList" [value]="element.value">
+                    {{element.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="16.66%" fxFlex.xs="100%" fxFlex.sm="33.33%">
+              <mat-form-field appearance="standard">
+                <mat-label>Enter your Postal Code</mat-label>
+                <input matInput placeholder="Postal Code">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div class="hic-2-address-form-content">
+            <button type="submit" id="hic-2-address-submit" (click)="gotoPropertyFound()">Continue</button>
+          </div>
+          
+      </form> -->
+
+      <div class="hic-2-address-form-content" fxLayout="row wrap" fxLayoutGap="16px grid">
+
+        <div fxFlex="70%" fxFlex.xs="100%" fxFlex.sm="50%">
+          <AutocompleteComponent (setAddress)="getAddress($event)" adressType="geocode"></AutocompleteComponent>
+        </div>
+
+        <div class="hic-2-address-form-content" fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="50%">
+          <button type="submit" id="hic-2-address-submit" (click)="gotoPropertyFound()">Continue</button>
+        </div>
+
+      </div>
+
+  </div>
+</div>

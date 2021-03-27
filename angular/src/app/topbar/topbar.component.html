@@ -1,0 +1,56 @@
+<mat-toolbar>
+    
+    <a routerLink="/home" >
+        <img width="50" src="../../../assets/logo.png" class="logo" title="Real Estate" />
+    </a>
+
+    <span style="flex: 1 1 auto;"></span>
+    <span>Call Now <a href="tel:403-807-1616">403-807-1616</a></span>
+    <div>
+        
+        <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="accountMenu">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #accountMenu [overlapTrigger]="false" yPosition="below">
+            <button mat-menu-item routerLink="#">
+                <mat-icon>person</mat-icon><span>My Account</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>help</mat-icon><span>Help</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>Logout
+            </button>
+        </mat-menu>
+    </div>
+
+</mat-toolbar>
+<mat-toolbar color="accent" class="accent-menu-font">
+    <button  mat-button  routerLink= "buyers/calgary-listing" >House-Buyers</button>
+    <button  mat-button  routerLink= "commercials/home" >Commercials</button>
+    <button  mat-button  routerLink= "sellers/home" >Sellers</button>
+    <button  mat-button  routerLink= "mortgage/home" >Mortgage</button>
+    <!-- <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <li>
+            <a mat-list-item routerLink="buyers/calgary-listing">House-Buyers</a>
+        </li>
+        <li>
+            <a mat-list-item routerLink="commercials/home">Commercials</a>
+        </li>
+        <li>
+            <a mat-list-item routerLink="sellers/home">Sellers</a>
+        </li>
+        <li>
+            <a mat-list-item routerLink="mortgage/home">Mortgage</a>
+        </li>
+    </ul> -->
+</mat-toolbar>
+<!-- <mat-toolbar>
+    <ul fxLayout fxLayoutGap="25px" class="navigation-items">
+        <li>
+            <a mat-list-item routerLink="buyers/calgary-listing">Calgary and near Area Houses for Sale</a>
+        </li>
+    </ul>
+    
+</mat-toolbar> -->
